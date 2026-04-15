@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Užsakymai{% endblock %}
+
+{% block content %}
+{% for order in orders %}
+<p><a>{{ order }}</a></p>
+{% endfor %}
+{% endblock %}
