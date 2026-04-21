@@ -1,7 +1,9 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from .models import Car, Service, Order, OrderLine
 from django.views import generic
+from .forms import OrderCreateUpdateForm
 
 # Create your views here.
 def index(request):
@@ -49,3 +51,16 @@ class UserOrderListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return Order.objects.filter(client=self.request.user)
+
+
+class OrderCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Order
+    template_name = "order_form.html"
+    form_class = OrderCreateUpdateForm
+    success_url = reverse_lazy('userorders')
+
+    def form_valid(self, form):
+        form.instance.client = self.request.user
+        form.save()
+        return super().form_valid(form)
+
