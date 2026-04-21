@@ -9,8 +9,9 @@
 <p>Klientas: {{ order.client }}</p>
 <p>Būsena: {{ order.get_status_display }}</p>
 
-
-
+<div class="mb-4">
+    <a class="btn btn-warning" href="{% url 'orders_update' order.pk %}">Redaguoti</a>
+</div>
 
 <table class="table table-bordered">
     <thead>
