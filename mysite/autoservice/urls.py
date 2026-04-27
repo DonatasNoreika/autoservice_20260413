@@ -16,4 +16,5 @@ urlpatterns = [
     path("orderlines/<int:pk>/delete/", views.OrderLineDeleteView.as_view(), name="orderline_delete"),
     path('signup/', views.SignUpView.as_view(), name='signup'),
     path('profile/', views.ProfileUpdateView.as_view(), name='profile'),
+    path('services/', views.ServiceListView.as_view(), name="services"),
 ]

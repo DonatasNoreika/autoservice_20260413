@@ -143,3 +143,12 @@ class ProfileUpdateView(LoginRequiredMixin, generic.UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
+
+
+class ServiceListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView):
+    model = Service
+    template_name = "services.html"
+    context_object_name = "services"
+
+    def test_func(self):
+        return self.request.user.is_staff
