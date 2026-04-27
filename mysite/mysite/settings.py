@@ -16,12 +16,18 @@ from .my_settings import (SECRET_KEY,
                           EMAIL_HOST_USER,
                           EMAIL_HOST_PASSWORD,
                           DEBUG,
-                          ALLOWED_HOSTS)
+                          ALLOWED_HOSTS,
+                          STATICFILES_DIRS,
+                          STATIC_ROOT,
+                          STATIC_URL)
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+STATICFILES_DIRS = STATICFILES_DIRS
+STATIC_ROOT = STATIC_ROOT
+STATIC_URL = STATIC_URL
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
