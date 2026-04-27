@@ -3,6 +3,9 @@
 {% block title %}Paslaugos{% endblock %}
 
 {% block content %}
+<div>
+    <a href="{% url 'services_create' %}" class="btn btn-primary">Naujas</a>
+</div>
 {% for service in services %}
 <p>{{ service }}</p>
 {% endfor %}

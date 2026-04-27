@@ -152,3 +152,13 @@ class ServiceListView(LoginRequiredMixin, UserPassesTestMixin, generic.ListView)
 
     def test_func(self):
         return self.request.user.is_staff
+
+
+class ServiceCreateView(LoginRequiredMixin, UserPassesTestMixin, generic.CreateView):
+    model = Service
+    template_name = "service_form.html"
+    fields = ['name', 'price']
+    success_url = reverse_lazy("services")
+
+    def test_func(self):
+        return self.request.user.is_staff
